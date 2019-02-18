@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fcbase
+  labels:
+          run: fcbase
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8543
+    targetPort: 8543
+  selector:
+          run: fcbase
+
+---
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: fcbase
+  labels:
+    app: fcbase
+spec:
+  replicas: 1
+  selector:
+          matchLabels:
+                  run: fcbase
+  template:
+    metadata:
+      labels:
+        run: fcbase
+    spec:
+      containers:
+      - name: fcbase 
+        image: fcbase:0.1.1  
+        ports:
+        - containerPort: 8543
+        imagePullPolicy: IfNotPresent
