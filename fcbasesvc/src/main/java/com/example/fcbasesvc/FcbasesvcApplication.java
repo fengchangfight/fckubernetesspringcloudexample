@@ -8,7 +8,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableDiscoveryClient
 public class FcbasesvcApplication {
 
+	public final static long startTime=System.currentTimeMillis();
+
 	public static void main(String[] args) {
+
 		SpringApplication.run(FcbasesvcApplication.class, args);
 	}
 

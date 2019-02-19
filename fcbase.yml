@@ -13,7 +13,7 @@ spec:
           run: fcbase
 
 ---
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fcbase
@@ -30,8 +30,17 @@ spec:
         run: fcbase
     spec:
       containers:
-      - name: fcbase 
-        image: fcbase:0.1.1  
+      - name: fcbase
+        image: fcbase:0.1.1
         ports:
         - containerPort: 8543
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+             path: /healthcheck
+             port: 8543
+             httpHeaders:
+             - name: Custom-Header
+               value: Awesome
+          initialDelaySeconds: 3
+          periodSeconds: 36000
