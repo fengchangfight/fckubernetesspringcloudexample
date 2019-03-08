@@ -18,7 +18,7 @@ public class CallerController {
 
     @GetMapping("/")
     public String callBase(){
-        System.out.println( "I am calling base..");
+        System.out.println( "I am calling base 2..");
         Object result = restTemplate.getForObject("http://fcbase", String.class);
         return result.toString();
     }

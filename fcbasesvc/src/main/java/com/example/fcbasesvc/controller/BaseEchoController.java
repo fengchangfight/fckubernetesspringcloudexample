@@ -1,7 +1,6 @@
 package com.example.fcbasesvc.controller;
 
 import com.example.fcbasesvc.FcbasesvcApplication;
-import com.example.fcbasesvc.config.AppListener;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BaseEchoController {
     @GetMapping("/")
     public String echoHello(){
-        return "Hello hellolllll";
+        return "Hello hello patch";
     }
 
     @GetMapping("/healthcheck")
